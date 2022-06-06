@@ -32,7 +32,6 @@ public class LogicTest {
         logic.move(Cell.C8, Cell.A6);
     }
 
-
     @Test(expected = FigureNotFoundException.class)
     public void testFigureNotFoundException()
             throws OccupiedCellException, FigureNotFoundException {
