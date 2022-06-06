@@ -4,6 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 import org.junit.Test;
+import ru.job4j.chess.ImpossibleMoveException;
 import ru.job4j.chess.firuges.Cell;
 
 public class BishopBlackTest {
@@ -23,10 +24,24 @@ public class BishopBlackTest {
 
     @Test
     public void testWay() {
+        BishopBlack bishopBlack = new BishopBlack(Cell.E1);
+        Cell[] expected = new Cell[] {Cell.F2, Cell.G3, Cell.H4};
+        Cell[] actual = bishopBlack.way(Cell.H4);
+        assertThat(actual, is(expected));
+    }
+
+    @Test
+    public void testWay1() {
         BishopBlack bishopBlack = new BishopBlack(Cell.B1);
         Cell[] expected = new Cell[] {Cell.C2, Cell.D3, Cell.E4};
         Cell[] actual = bishopBlack.way(Cell.E4);
-        assertThat(expected, is(actual));
+        assertThat(actual, is(expected));
+    }
+
+    @Test(expected = ImpossibleMoveException.class)
+    public void testWayException() {
+        BishopBlack bishopBlack = new BishopBlack(Cell.B1);
+        bishopBlack.way(Cell.F4);
     }
 
     @Test
