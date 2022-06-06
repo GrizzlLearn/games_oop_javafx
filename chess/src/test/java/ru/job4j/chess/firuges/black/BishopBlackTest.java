@@ -28,4 +28,18 @@ public class BishopBlackTest {
         Cell[] actual = bishopBlack.way(Cell.E4);
         assertThat(expected, is(actual));
     }
+
+    @Test
+    public void testIsDiagonalTrue() {
+        BishopBlack bishopBlack = new BishopBlack(Cell.B1);
+        boolean expected = bishopBlack.isDiagonal(bishopBlack.position(), Cell.E4);
+        assertThat(expected, is(true));
+    }
+
+    @Test
+    public void testIsDiagonalFalse() {
+        BishopBlack bishopBlack = new BishopBlack(Cell.B1);
+        boolean expected = bishopBlack.isDiagonal(bishopBlack.position(), Cell.F4);
+        assertThat(expected, is(false));
+    }
 }
