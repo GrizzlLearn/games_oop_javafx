@@ -23,18 +23,18 @@ public class BishopBlackTest {
     }
 
     @Test
-    public void testWay() {
-        BishopBlack bishopBlack = new BishopBlack(Cell.E1);
-        Cell[] expected = new Cell[] {Cell.F2, Cell.G3, Cell.H4};
-        Cell[] actual = bishopBlack.way(Cell.H4);
+    public void testWayC8ToF5() {
+        BishopBlack bishopBlack = new BishopBlack(Cell.C8);
+        Cell[] expected = new Cell[] {Cell.D7, Cell.E6, Cell.F5};
+        Cell[] actual = bishopBlack.way(Cell.F5);
         assertThat(actual, is(expected));
     }
 
     @Test
-    public void testWay1() {
-        BishopBlack bishopBlack = new BishopBlack(Cell.B1);
-        Cell[] expected = new Cell[] {Cell.C2, Cell.D3, Cell.E4};
-        Cell[] actual = bishopBlack.way(Cell.E4);
+    public void testWayF8ToA3() {
+        BishopBlack bishopBlack = new BishopBlack(Cell.F8);
+        Cell[] expected = new Cell[] {Cell.E7, Cell.D6, Cell.C5, Cell.B4, Cell.A3};
+        Cell[] actual = bishopBlack.way(Cell.A3);
         assertThat(actual, is(expected));
     }
 
@@ -45,9 +45,16 @@ public class BishopBlackTest {
     }
 
     @Test
-    public void testIsDiagonalTrue() {
-        BishopBlack bishopBlack = new BishopBlack(Cell.B1);
-        boolean expected = bishopBlack.isDiagonal(bishopBlack.position(), Cell.E4);
+    public void testIsDiagonalC8ToF5() {
+        BishopBlack bishopBlack = new BishopBlack(Cell.C8);
+        boolean expected = bishopBlack.isDiagonal(bishopBlack.position(), Cell.F5);
+        assertThat(expected, is(true));
+    }
+
+    @Test
+    public void testIsDiagonalF8ToA3() {
+        BishopBlack bishopBlack = new BishopBlack(Cell.F8);
+        boolean expected = bishopBlack.isDiagonal(bishopBlack.position(), Cell.A3);
         assertThat(expected, is(true));
     }
 
