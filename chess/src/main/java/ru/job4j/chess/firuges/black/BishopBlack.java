@@ -40,7 +40,7 @@ public class BishopBlack implements Figure {
     }
 
     public boolean isDiagonal(Cell source, Cell dest) {
-        return dest.getX() - source.getX() == source.getY() - dest.getY();
+        return Math.abs(dest.getX() - source.getX()) == Math.abs(source.getY() - dest.getY());
     }
 
     @Override
